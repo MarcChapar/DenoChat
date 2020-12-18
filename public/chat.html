@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+    <title>Chat</title>
+</head>
+<body>
+        <div class="chat-container">
+            <div class="left-column">
+                <h4 style="font-weight: bold;">
+                    Room users
+                    (<span id="chatUsersCount">0</span>)
+                </h4>
+                <div id="chatUsers"></div>
+            </div>
+            <div class="right-column">
+                <div class="chat-header" id="chatHeader">
+                    <button class="btn btn-dark leave-btn" id="leaveButton">Leave group</button>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-messages" id="chatMessages">
+                    </div>
+                    <div class="chat-message">
+                        <form id="messageForm" class="message-form">
+                            <div class="mb-3 form-message-controls">
+                                <input type="text" class="form-control input-message" id="messageInput" placeholder="Type your message and hit enter">
+                                <button class="btn btn-dark" style="margin: auto">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+<script src="client.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</html>

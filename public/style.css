@@ -1,0 +1,110 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    overflow-y: hidden;
+  }
+
+.chat-container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.right-column {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-column {
+    background-color: rgb(98, 109, 109);
+    height: 100%;
+    width: 17%;
+}
+
+.radio-padding {
+    padding-right: 10px;
+}
+
+.message-card {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    border-width: 1px;
+    border-color: rgb(138, 165, 165);
+    border-style: solid;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: rgb(138, 165, 165);
+    margin-bottom: 5px;
+}
+
+.own-message-card {
+    align-self: flex-end;
+    border-color: rgb(196, 223, 223);
+    background-color: rgb(196, 223, 223);
+}
+
+.chat-header {
+    height: 10%;
+    background-color: rgb(108, 192, 192);
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-body {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.chat-message {
+    margin-top: auto; 
+    background-color: rgb(108, 192, 192);  
+}
+
+.chat-message form {
+    display: flex;
+    flex-direction: row;
+}
+
+h6 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.input-message {
+    width: 80%;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.form-message {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.form-message-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.leave-btn {
+    align-self: center;
+    margin-right: 5px;
+}
