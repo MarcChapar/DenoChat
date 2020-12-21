@@ -10,6 +10,9 @@ const port = argPort ? parseInt(argPort) : DEFAULT_PORT;
 
 listenAndServe({port: port}, async (req) => {
     let url = req.url;
+    if (url === '/') {
+        url = '/index.html';
+    }
     const position = url.indexOf('?');
     if (position > -1) {
         url = url.substring(0, position);
