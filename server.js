@@ -5,10 +5,10 @@ import { parse } from "https://deno.land/std@0.81.0/flags/mod.ts";
 import chat from "./chat.js";
 
 const DEFAULT_PORT = 3000;
-const argPort = parse(Deno.args);
+const argPort = parse(Deno.args).port;
 const port = argPort ? parseInt(argPort) : DEFAULT_PORT;
 
-listenAndServe({port: port  }, async (req) => {
+listenAndServe({port: port}, async (req) => {
     let url = req.url;
     const position = url.indexOf('?');
     if (position > -1) {
