@@ -8,7 +8,8 @@ let chatHeader = document.querySelector('#chatHeader')
 let leaveButton = document.querySelector('#leaveButton')
 
 window.addEventListener('DOMContentLoaded', () => {
-    ws = new WebSocket('ws://localhost:3000/ws');
+    let protocol = window.location.protocol === "http:" ? "ws" : "wss";
+    ws = new WebSocket(`${protocol}://${window.location.host}/ws`);
     ws.addEventListener('open', onConnectionOpen);
     ws.addEventListener('message', onMessageReceived);
 
