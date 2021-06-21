@@ -6,6 +6,7 @@ let messageInput = document.querySelector('#messageInput')
 let chatMessages = document.querySelector('#chatMessages')
 let chatHeader = document.querySelector('#chatHeader')
 let leaveButton = document.querySelector('#leaveButton')
+var connectedUsersColors = {}
 
 window.addEventListener('DOMContentLoaded', () => {
     let protocol = window.location.protocol === "http:" ? "ws" : "wss";
@@ -38,6 +39,7 @@ function onConnectionOpen() {
     const params = new URLSearchParams(window.location.search)
     const queryParams = {
         username: params.get("username"),
+        url: params.get("url"),
         group: params.get("group")
     }
     if (!queryParams.username || !queryParams.group) {
@@ -51,20 +53,25 @@ function onConnectionOpen() {
         event: 'join',
         groupName: queryParams.group,
         username: queryParams.username,
+        url: queryParams.url
     }
+
     ws.send(JSON.stringify(event))
 }
 
 
 function onMessageReceived(event) {
     const parsedData = JSON.parse(event.data);
+    console.log(parsedData);
     switch (parsedData.event) {
         case 'users':
             chatUsersContainer.innerHTML = '';
             chatUsersCount.innerHTML = parsedData.data.length;
             parsedData.data.forEach(user => {
+                connectedUsersColors[user.username] = getRandomColor();
                 const userElement = document.createElement('div')
-                userElement.innerHTML = user.username;
+                userElement.classList.add('user')
+                userElement.innerHTML = `<img class="user-pic" src="${user.url ? user.url : 'images/user-placeholder.jpg'}">${user.username}`;
                 chatUsersContainer.appendChild(userElement);
             });
             break;
@@ -86,8 +93,12 @@ function appendMessage(data) {
     const messageElement = document.createElement('div');
     messageElement.className = `message-card ${data.sender === 'me' ? 'own-message-card' : ''}`
     messageElement.innerHTML = `
-    ${data.sender === 'me' ? '' : `<h6>${data.username}</h6><br>`}
+    ${data.sender === 'me' ? '' : `<span class="username-title" style="color: ${this.connectedUsersColors[data.username] ?? getRandomColor()}">${data.username}</span>`}
     ${data.message}
     `
     chatMessages.appendChild(messageElement);
 }
+
+function getRandomColor() {
+    return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+  }

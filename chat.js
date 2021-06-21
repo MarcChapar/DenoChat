@@ -11,7 +11,6 @@ export default async function chat(ws) {
     for await (let data of ws) {
         const event = typeof data === 'string' ? JSON.parse(data) : data;
         if (isWebSocketCloseEvent(data)) {
-            console.log(data)
             leaveGroup(userId)
             break;
         }
@@ -22,6 +21,7 @@ export default async function chat(ws) {
                 userObject = {
                     userId: userId,
                     username: event.username,
+                    url: event.url,
                     groupName: event.groupName,
                     ws
                 }
@@ -38,6 +38,7 @@ export default async function chat(ws) {
                 const message = {
                     userId,
                     username: userObject.username,
+                    url: event.url,
                     message: event.data,
                 }
 
@@ -67,7 +68,7 @@ function emitMessage(groupName, message, userId) {
     for (const user of users) {
         const tmpMessage = {
             ...message,
-            sender: user.userId === userId ? 'me' : userId
+            sender: user.userId === userId ? 'me' : userId,
         }
         const event = {
             event: 'message',
@@ -91,7 +92,7 @@ function emitPreviousMessages(groupName, ws) {
 
 function getDisplayUsers(groupName, users) {
     return users.map(u => {
-        return {userId: u.userId, username: u.username}
+        return {...u}
     })
 }
 

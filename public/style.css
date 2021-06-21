@@ -5,13 +5,20 @@ html, body {
   body {
     font-family: 'Poppins', sans-serif;
     overflow-y: hidden;
-    background-color: black;
+    background-color: rgb(247, 249, 247);
   }
 
 .chat-container {
     display: flex;
     justify-content: center;
-    height: 100%;
+    height: 90%;
+    top: 5%;
+    left: 25%;
+    width: 50%;
+    border-radius: 19px;
+    position: relative;
+    box-shadow: -2px 10px 16px 9px rgb(0 0 0 / 75%);
+    overflow: hidden;
 }
 
 .join-card {
@@ -37,16 +44,17 @@ html, body {
 }
 
 .right-column {
-    width: 40%;
+    width: 75%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .left-column {
-    background-color:rgb(176, 183, 183);
+    background-color:rgb(177 214 182);
     height: 100%;
-    width: 17%;
+    width: 25%;
+    padding: 10px
 }
 
 .radio-padding {
@@ -57,13 +65,11 @@ html, body {
     width: max-content;
     display: flex;
     flex-direction: column;
-    border-width: 1px;
-    border-color: rgb(138, 165, 165);
-    border-style: solid;
     border-radius: 10px;
     padding: 2px;
-    background-color: rgb(138, 165, 165);
+    background-color: #f9fafb;
     margin-bottom: 5px;
+    box-shadow: -2px 1px 5px 0px rgb(0 0 0 / 75%);
 }
 
 .own-message-card {
@@ -74,29 +80,28 @@ html, body {
 
 .chat-header {
     height: 10%;
-    background-color: rgb(108, 192, 192);
+    background-color: rgb(6, 172, 89);
     padding-left: 10px;
     display: flex;
     justify-content: space-between;
 }
 
 .chat-body {
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    background-color: aliceblue;
+    height: 94%;
+    background-color: #e9ecef
 }
 
 .chat-messages {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow: auto;
+    height: 93%;
 }
 
 .chat-message {
-    margin-top: auto; 
-    background-color: rgb(108, 192, 192);  
+    height: 7%;
+    background-color: rgb(6, 172, 89);  
 }
 
 .chat-message form {
@@ -114,6 +119,10 @@ h6 {
     margin-left: 5px;
     margin-top: 5px;
 }
+.btn-send {
+    position: relative;
+    top: 2px;
+}
 
 .form-message {
     display: flex;
@@ -130,5 +139,51 @@ h6 {
 
 .leave-btn {
     align-self: center;
-    margin-right: 5px;
+    margin-right: 15px;
+    width: 108px;
+    height: 33px;
+    font-size: 14px;
+    white-space: nowrap;
 }
+
+.username-title {
+    font-size: 13px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(60, 158, 109);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .user-pic {
+      border-radius: 100px;
+      margin-right: 5px;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+  }
+
+  .user {
+      display: flex;
+      border-bottom: black 1px solid;
+      align-items: center;
+  }
